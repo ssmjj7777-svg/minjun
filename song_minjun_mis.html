@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>송민준 | 국민대학교 경영정보학부</title>
+  <style>
+    :root {
+      --navy: #142b4a;
+      --blue: #2f6fed;
+      --pale: #eef4ff;
+      --ink: #202b3c;
+      --muted: #637086;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Malgun Gothic", "Noto Sans KR", sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: #f7f9fc;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, 90%); margin: 0 auto; }
+    header {
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid #e5eaf2;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-weight: 800; color: var(--navy); letter-spacing: -.4px; }
+    .nav-links { display: flex; gap: 22px; color: #526078; font-size: .94rem; }
+    .hero {
+      background: linear-gradient(125deg, #142b4a 0%, #1d477a 58%, #3676d8 100%);
+      color: white;
+      padding: 92px 0 86px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      align-items: center;
+      gap: 50px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      color: #dceaff;
+      font-size: .86rem;
+      margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.15; letter-spacing: -2px; margin: 0 0 20px; }
+    .hero p { color: #e2ebfa; max-width: 600px; font-size: 1.08rem; margin: 0 0 28px; }
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border-radius: 10px;
+      background: white;
+      color: var(--navy);
+      font-weight: 750;
+      margin-right: 8px;
+    }
+    .button.secondary { background: transparent; border: 1px solid rgba(255,255,255,.5); color: white; }
+    .hero-card {
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+    .hero-card .big { font-size: 3.6rem; font-weight: 850; line-height: 1; }
+    .hero-card h2 { margin: 14px 0 8px; font-size: 1.2rem; }
+    .hero-card p { font-size: .95rem; margin: 0; }
+    section { padding: 76px 0; }
+    .section-label { color: var(--blue); font-size: .82rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    h2.section-title { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -1px; margin: 7px 0 12px; line-height: 1.25; }
+    .intro { color: var(--muted); max-width: 700px; margin: 0 0 32px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--white);
+      padding: 25px;
+      border: 1px solid #e6ebf3;
+      border-radius: 17px;
+      box-shadow: 0 8px 25px rgba(27,49,83,.035);
+    }
+    .icon {
+      width: 44px; height: 44px; display: grid; place-items: center;
+      background: var(--pale); border-radius: 12px; color: var(--blue);
+      font-size: 1.3rem; font-weight: 800; margin-bottom: 16px;
+    }
+    .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.12rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .split {
+      display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; align-items: start;
+    }
+    .panel { background: var(--pale); border-radius: 20px; padding: 30px; }
+    .panel h3 { margin: 0 0 12px; color: var(--navy); }
+    .panel p { margin: 0; color: #4f617b; }
+    .list { padding: 0; margin: 0; list-style: none; }
+    .list li { padding: 15px 0; border-bottom: 1px solid #e5eaf2; }
+    .list li:last-child { border-bottom: 0; }
+    .list strong { color: var(--navy); display: block; margin-bottom: 3px; }
+    .list span { color: var(--muted); font-size: .95rem; }
+    .quote {
+      background: var(--navy); color: white; border-radius: 22px; padding: 36px;
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem); line-height: 1.55; font-weight: 700;
+    }
+    .quote small { display: block; color: #b9cce8; font-size: .9rem; font-weight: 500; margin-top: 15px; }
+    .cta { text-align: center; background: #edf3fc; }
+    .cta p { color: var(--muted); margin: 0 auto 22px; max-width: 650px; }
+    .cta .button { background: var(--blue); color: white; margin: 0; }
+    footer { background: #101f35; color: #c5d0e0; padding: 25px 0; font-size: .88rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav-links { gap: 12px; font-size: .82rem; }
+      .hero { padding: 66px 0; }
+      .hero-grid, .split { grid-template-columns: 1fr; gap: 28px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      h1 { letter-spacing: -1px; }
+    }
+    @media (max-width: 440px) {
+      nav { align-items: flex-start; padding: 15px 0; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; }
+      .button { margin-bottom: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">SONG MINJUN <span style="color:#2f6fed">/ MIS</span></a>
+      <div class="nav-links">
+        <a href="#about">학부 소개</a>
+        <a href="#study">배우는 분야</a>
+        <a href="#future">진로와 목표</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Kookmin University · Management Information Systems</span>
+          <h1>데이터와 경영을<br>연결하는 사람,<br>송민준입니다.</h1>
+          <p>기술을 이해하는 데서 멈추지 않고, 데이터를 활용해 실제 사회와 기업의 문제를 해결하는 방법을 배우고 싶습니다.</p>
+          <a class="button" href="#about">학부 알아보기 ↓</a>
+          <a class="button secondary" href="#future">나의 목표</a>
+        </div>
+        <div class="hero-card">
+          <div class="big">MIS</div>
+          <h2>경영정보학부</h2>
+          <p>경영에 대한 이해와 정보기술을 결합해, 데이터를 바탕으로 더 나은 의사결정을 돕는 분야입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <span class="section-label">01 / About MIS</span>
+        <h2 class="section-title">경영정보학은 무엇을 배우는 학문일까요?</h2>
+        <p class="intro">경영정보학은 경영과 정보기술을 함께 다루는 학문입니다. 기업이 데이터를 수집하고 분석하는 방법뿐 아니라, 그 결과를 실제 의사결정과 서비스 개선에 연결하는 방법을 탐구합니다.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>데이터 분석</h3>
+            <p>데이터 속 패턴과 의미를 찾아 문제를 이해하고, 근거 있는 판단을 내리는 방법을 배웁니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">⌘</div>
+            <h3>정보 시스템</h3>
+            <p>기업의 업무와 데이터를 연결하는 시스템이 어떻게 설계되고 활용되는지 이해합니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">◎</div>
+            <h3>경영 의사결정</h3>
+            <p>시장과 고객을 분석하고, 기술과 데이터를 활용해 더 효과적인 전략을 세우는 방법을 살펴봅니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="study" style="background:#fff">
+      <div class="wrap split">
+        <div>
+          <span class="section-label">02 / What to learn</span>
+          <h2 class="section-title">기술을 이해하고,<br>현실의 문제에 적용하기</h2>
+          <p class="intro">경영정보학의 매력은 한 분야에만 머무르지 않는다는 점입니다. 기술적 분석과 경영적 관점을 함께 활용해 문제를 다양한 방향에서 바라볼 수 있습니다.</p>
+          <div class="panel">
+            <h3>핵심 관점</h3>
+            <p>“어떤 기술을 만들 수 있을까?”에서 한 걸음 더 나아가 “누구의 어떤 문제를 해결해야 할까?”를 생각합니다.</p>
+          </div>
+        </div>
+        <ul class="list">
+          <li><strong>데이터와 통계</strong><span>데이터를 읽고 분석해 의미 있는 결론을 도출합니다.</span></li>
+          <li><strong>인공지능과 디지털 기술</strong><span>AI와 정보기술이 기업과 사회를 어떻게 바꾸는지 탐구합니다.</span></li>
+          <li><strong>비즈니스와 전략</strong><span>고객의 필요, 시장 환경, 기업의 목표를 분석합니다.</span></li>
+          <li><strong>정보 시스템 기획</strong><span>사용자에게 필요한 서비스를 정의하고 운영 방법까지 고민합니다.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="future">
+      <div class="wrap">
+        <span class="section-label">03 / My direction</span>
+        <h2 class="section-title">제가 경영정보학에 관심을 갖는 이유</h2>
+        <p class="intro">저는 데이터를 분석하는 것 자체를 넘어, 분석 결과가 실제 사람들의 선택과 기업의 문제 해결에 어떻게 활용되는지에 관심이 있습니다.</p>
+        <div class="quote">
+          데이터에서 의미를 찾고, 그 의미를 더 나은 선택으로 연결하고 싶습니다.
+          <small>송민준 · 국민대학교 경영정보학부 소개 웹페이지</small>
+        </div>
+        <div class="cards" style="margin-top:22px">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>탐구하는 태도</h3>
+            <p>익숙한 현상도 데이터를 통해 다시 살펴보고, 근거를 바탕으로 판단하겠습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>융합하는 시각</h3>
+            <p>기술적 가능성과 고객·기업의 실제 필요를 함께 고려하겠습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>실행으로 연결</h3>
+            <p>분석에서 끝나지 않고, 결과를 문제 해결과 서비스 개선으로 이어가고 싶습니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <span class="section-label">Explore</span>
+        <h2 class="section-title">경영과 기술이 만나는 곳</h2>
+        <p>경영정보학은 데이터를 이해하고, 기술을 활용하며, 사람과 조직에 필요한 가치를 만드는 방법을 고민하는 분야입니다.</p>
+        <a class="button" href="https://www.kookmin.ac.kr/" target="_blank" rel="noopener noreferrer">국민대학교 공식 홈페이지 ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© Song Minjun · MIS Introduction</span>
+      <span>본 페이지는 개인 소개용 예시 웹페이지입니다.</span>
+    </div>
+  </footer>
+</body>
+</html>
